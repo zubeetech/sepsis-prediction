@@ -56,7 +56,7 @@ def predict_form():
 
             # Display the prediction
             if response.status_code == 200:
-                prediction = response.json().get('prediction')
+                prediction = response.json().get('rf_prediction', 'probability')
                 st.success(f"The patient is sepsis {prediction}")
             else:
                 try:

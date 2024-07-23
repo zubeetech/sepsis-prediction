@@ -33,8 +33,8 @@ encoder = joblib.load('../api/models/encoder.joblib')
 @app.post('/rf_predict')
 def predict_sepsis_rf(data: sepsis_features):
     df = pd.DataFrame([data.model_dump()])
-    prediction = forest_pipeline.predict(df)
-    int_features = int(prediction[0])
+    rf_prediction = forest_pipeline.predict(df)
+    int_features = int(rf_prediction[0])
     label = encoder.inverse_transform([int_features])[0]
     probability = round(float(forest_pipeline.predict_proba(df)[0][int_features])*100, 2)
     final_prediction = {"prediction": label, "probability": probability}
