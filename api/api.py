@@ -53,7 +53,7 @@ def predict_sepsis_lr(data: sepsis_features):
 
 
 @app.post('/ad_predict')
-def predict_sepsis_lr(data: sepsis_features):
+def predict_sepsis_ad(data: sepsis_features):
     df = pd.DataFrame([data.model_dump()])
     prediction = ada_pipeline.predict(df)
     int_features = int(prediction[0])
