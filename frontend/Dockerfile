@@ -12,4 +12,4 @@ WORKDIR /app
 
 EXPOSE 4434
 
-CMD ["streamlit", "run", "main.py", "--server.port = 8501"]
+CMD ["streamlit", "run", "main.py", --server.port==8501]
